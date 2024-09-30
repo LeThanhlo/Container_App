@@ -39,5 +39,10 @@ namespace Container_App.Repository.AuthRepository
                 await _context.SaveChangesAsync();
             }
         }
+
+        public async Task<User> GetUserByID(int Id)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.UserId == Id);
+        }
     }
 }

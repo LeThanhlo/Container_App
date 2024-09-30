@@ -42,7 +42,7 @@ namespace Container_App.Services.AuthService
                 return null; // Invalid or expired refresh token
             }
 
-            var user = await _authRepository.GetUserByUsernameAndPassword(storedToken.UserId);
+            var user = await _authRepository.GetUserByID(storedToken.UserId);
             if (user == null) return null;
 
             var newAccessToken = GenerateAccessToken(user);
@@ -92,7 +92,7 @@ namespace Container_App.Services.AuthService
             {
                 Token = Guid.NewGuid().ToString(), // Random token string
                 ExpiryDate = DateTime.UtcNow.AddDays(7), // Refresh token expires in 7 days
-                UserId = user.UserId.ToString(),
+                UserId = user.UserId,
                 IsRevoked = false
             };
 

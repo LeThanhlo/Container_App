@@ -14,7 +14,7 @@ namespace Container_App.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] User request)
+        public async Task<IActionResult> Login([FromBody] Login request)
         {
             var token = await _authService.Login(request.Username, request.Password);
             if (token == null) return Unauthorized();
@@ -23,9 +23,9 @@ namespace Container_App.Controllers
         }
 
         [HttpPost("refresh-token")]
-        public async Task<IActionResult> RefreshToken([FromBody] Token request)
+        public async Task<IActionResult> RefreshToken([FromBody] string request)
         {
-            var token = await _authService.RefreshToken(request.RefreshToken);
+            var token = await _authService.RefreshToken(request);
             if (token == null) return Unauthorized();
 
             return Ok(token);

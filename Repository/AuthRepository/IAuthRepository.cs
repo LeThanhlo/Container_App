@@ -8,5 +8,7 @@ namespace Container_App.Repository.AuthRepository
         Task<RefreshToken> GetRefreshToken(string token);
         Task SaveRefreshToken(RefreshToken refreshToken);
         Task RevokeRefreshToken(string token);
+
+        Task<User> GetUserByID(int Id);
     }
 }
