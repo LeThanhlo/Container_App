@@ -14,7 +14,7 @@ namespace Container_App.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] Login request)
+        public async Task<IActionResult> Login(Login request)
         {
             var token = await _authService.Login(request.Username, request.Password);
             if (token == null) return Unauthorized();

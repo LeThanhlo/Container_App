@@ -1,5 +1,7 @@
 ﻿using Container_App.Data;
+using Container_App.Repository.AuthRepository;
 using Container_App.Repository.UserRepository;
+using Container_App.Services.AuthService;
 using Container_App.Services.UserService;
 using dotenv.net;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -23,10 +25,12 @@ builder.Services.AddDbContext<MyDbContext>(options =>
 
 #region Add Repository
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 #endregion
 
 #region Add Service
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 #endregion
 
 
