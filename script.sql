@@ -112,3 +112,8 @@ CREATE TABLE RefreshTokens
     UserId NVARCHAR(255) NOT NULL
 );
 
+CREATE TABLE ProjectUserInvite
+(
+    
+);
+
