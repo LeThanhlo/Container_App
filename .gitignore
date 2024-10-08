@@ -36,7 +36,7 @@ _ReSharper*/
 *.userprefs
 *.swp
 *.DotSettings
-*.env
+.env
 
 _NCrunch_LibGit2Sharp/
 artifacts/
